@@ -1,0 +1,32 @@
+<div class="recommendation-container">
+  <h2 class="title">🔍 Générateur de Recommendations</h2>
+  <div class="input-section"> <input type="number" [(ngModel)]="userId" placeholder="Entrez l'ID utilisateur"
+      class="input-field" /> <button class="btn-generate" (click)="getRecommendations()" [disabled]="loading"> {{
+      loading ? 'Chargement...' : 'Générer' }} </button> </div>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  <div *ngIf="recommendations.length > 0" class="table-container animate-fade">
+    <h3 class="subtitle">Recommandations pour l'utilisateur #{{ apiUserId }}</h3>
+
+    
+    <table class="recommendation-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Item ID</th>
+          <th>Label</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rec of recommendations; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ rec.item_id }}</td>
+          <td>{{ rec.label }}</td>
+          <td>{{ rec.score !== undefined && rec.score !== null ? rec.score : '—' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p *ngIf="!loading && recommendations.length === 0 && !errorMessage" class="hint"> 🔸 Saisissez un ID utilisateur et
+    cliquez sur "Générer" pour voir les recommandations. </p>
+</div>

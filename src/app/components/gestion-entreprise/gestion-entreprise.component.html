@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <h2><i class="fa-solid fa-building"></i> Gestion des Entreprises</h2>
+
+  <!-- Formulaire ajout entreprise -->
+  <form (ngSubmit)="addEntreprise()" class="row g-2 my-3">
+    <div class="col-md-6">
+      <input [(ngModel)]="newEntreprise.nom" name="nom" class="form-control" placeholder="Nom de l'entreprise" required>
+    </div>
+    <div class="col-md-3">
+      <button type="submit" class="btn btn-success w-100"><i class="fa-solid fa-plus"></i> Ajouter</button>
+    </div>
+  </form>
+
+  <!-- Tableau entreprises -->
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of entreprises">
+        <td>{{ e.id }}</td>
+        <td>
+          <input [(ngModel)]="e.nom" name="nom{{e.id}}" class="form-control">
+        </td>
+        <td>
+          <button class="btn btn-primary btn-sm me-2" (click)="updateEntreprise(e)">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteEntreprise(e.id)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

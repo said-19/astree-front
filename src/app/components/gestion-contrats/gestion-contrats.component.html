@@ -1,0 +1,86 @@
+<div class="container mt-4">
+
+  <!-- Formulaire ajout contrat -->
+  <div class="container mt-4">
+    <h2><i class="fa-solid fa-file-contract"></i> Gestion des Contrats</h2>
+
+    <!-- Formulaire ajout contrat -->
+    <form (ngSubmit)="addContrat()" class="row g-2 my-3">
+
+      <div class="col-md-3">
+        <input [(ngModel)]="newContrat.nom" name="nom" class="form-control" placeholder="Nom du contrat" required>
+      </div>
+
+      <div class="col-md-3">
+        <input [(ngModel)]="newContrat.description" name="description" class="form-control"
+          placeholder="Description du contrat" required>
+      </div>
+
+      <div class="col-md-3">
+        <input [(ngModel)]="newContrat.prixMoyenTND" name="prixMoyenTND" type="number" class="form-control"
+          placeholder="Prix moyen (TND)" required>
+      </div>
+
+      <div class="col-md-3">
+        <input [(ngModel)]="newContrat.franchiseTND" name="franchiseTND" type="number" class="form-control"
+          placeholder="Franchise (TND)" required>
+      </div>
+
+      <div class="col-md-3">
+        <input [(ngModel)]="newContrat.caracteristiques" name="caracteristiques" class="form-control"
+          placeholder="Caractéristiques du contrat">
+      </div>
+
+      <div class="col-md-3">
+        <input [(ngModel)]="newContrat.entrepriseId" name="entrepriseId" type="number" class="form-control"
+          placeholder="Identifiant Entreprise" required>
+      </div>
+
+      <div class="col-md-3">
+        <input [(ngModel)]="newContrat.userId" name="userId" type="number" class="form-control"
+          placeholder="Identifiant Utilisateur" required>
+      </div>
+
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-success w-100">
+          <i class="fa-solid fa-plus"></i> Ajouter
+        </button>
+      </div>
+    </form>
+  </div>
+
+
+  <!-- Tableau des contrats -->
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Prix Moyen</th>
+        <th>Franchise</th>
+        <th>Caractéristiques</th>
+        <th>Entreprise</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of contrats">
+        <td>{{ c.id }}</td>
+        <td>{{ c.nom }}</td>
+        <td>{{ c.description }}</td>
+        <td>{{ c.prixMoyenTND }}</td>
+        <td>{{ c.franchiseTND }}</td>
+        <td>{{ c.caracteristiques }}</td>
+        <td>{{ c.entrepriseId }}</td>
+        <td>{{ c.userId }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm me-2" (click)="updateContrat(c)"><i
+              class="fa-solid fa-pen-to-square"></i></button>
+          <button class="btn btn-danger btn-sm" (click)="deleteContrat(c.id)"><i class="fa-solid fa-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

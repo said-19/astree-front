@@ -1,0 +1,17 @@
+<div class="qr-wrapper">
+  <div class="qr-card">
+    <h1 class="title">🔐 Offres d'Assurance Auto</h1>
+
+    <p class="subtitle">Clique sur le bouton pour générer un QR Code contenant toutes nos offres.</p>
+
+    <button class="generate-btn" (click)="generate()" [disabled]="loading">
+      <span *ngIf="!loading">🎯 Générer le QR Code</span>
+      <span *ngIf="loading">⏳ Génération en cours...</span>
+    </button>
+
+    <div *ngIf="qrCodeImage" class="qr-display fade-in">
+      <h3 class="qr-title">📱 Scannez ce QR Code</h3>
+      <img [src]="qrCodeImage" alt="QR Code" class="qr-img" />
+    </div>
+  </div>
+</div>

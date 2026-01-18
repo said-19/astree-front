@@ -1,0 +1,128 @@
+.recommendation-container {
+  /* Dégradé moderne du haut vers le bas */
+  background: linear-gradient(135deg, #4e54c8, #8f94fb); 
+  color: #f0f2f5;
+  border-radius: 0; /* plus de coins arrondis pour occuper tout l'espace */
+  padding: 40px;
+  width: 100vw;       /* largeur complète de la fenêtre */
+  height: 100vh;      /* hauteur complète de la fenêtre */
+  margin: 0;          /* pas de marge auto */
+  box-shadow: none;   /* optionnel si tu veux enlever l'ombre */
+  text-align: center;
+
+  display: flex;      /* pour centrer le contenu */
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+}
+
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #ffdd57;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.input-section {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.input-field {
+  padding: 10px 15px;
+  width: 220px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: 0.3s;
+  background-color: #f0f2f5;
+  color: #1b1d2a;
+}
+
+.input-field:focus {
+  box-shadow: 0 0 8px #ffdd57;
+}
+
+.btn-generate {
+  background: linear-gradient(90deg, #ffdd57, #ffb347);
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  color: #1b1d2a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-generate:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(255, 221, 87, 0.5);
+}
+
+.table-container {
+  margin-top: 30px;
+  overflow-x: auto;
+}
+
+.recommendation-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  font-size: 0.95rem;
+}
+
+.recommendation-table th, .recommendation-table td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.recommendation-table th {
+  color: #ffcc33;
+  font-weight: bold;
+}
+
+.recommendation-table tr:hover {
+  background: rgba(255,255,255,0.1);
+  transition: 0.2s;
+}
+
+.error {
+  color: #ff6b6b;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.hint {
+  margin-top: 20px;
+  color: rgba(255,255,255,0.7);
+}
+
+.animate-fade {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Fond général de la page */
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2); 
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
